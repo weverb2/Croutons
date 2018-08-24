@@ -15,6 +15,7 @@ import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.channels.ConflatedBroadcastChannel
 import kotlinx.coroutines.experimental.channels.consumeEach
 import kotlinx.coroutines.experimental.launch
+import works.wever.android.crouton.AndroidJob
 import works.wever.android.crouton.R
 
 
@@ -22,17 +23,20 @@ class ReceivingFragment : Fragment() {
 
     private lateinit var channelViewModel: ChannelViewModel
 
-    lateinit var job: Job
+    private val job = AndroidJob(lifecycle)
 
     lateinit var numberText: TextView
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
-        channelViewModel = ViewModelProviders.of(context as AppCompatActivity).get(ChannelViewModel::class.java)
+        channelViewModel = ViewModelProviders.of(context as AppCompatActivity)
+            .get(ChannelViewModel::class.java)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val view = inflater.inflate(R.layout.fragment_receiving, container, false)
 
         numberText = view.number
@@ -42,15 +46,10 @@ class ReceivingFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        job = launch(UI) { receive(channelViewModel.channel) }
+        launch(UI, parent = job) { receive(channelViewModel.channel) }
     }
 
     private suspend fun receive(numberChannel: ConflatedBroadcastChannel<Int>) {
         numberChannel.consumeEach { numberText.text = "$it" }
-    }
-
-    override fun onPause() {
-        super.onPause()
-        job.cancel()
     }
 }

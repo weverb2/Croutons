@@ -10,6 +10,7 @@ import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
 import kotlinx.coroutines.experimental.withContext
+import works.wever.android.crouton.AndroidJob
 import works.wever.android.crouton.R
 
 class SuperBasicActivity : AppCompatActivity() {
@@ -17,6 +18,8 @@ class SuperBasicActivity : AppCompatActivity() {
     companion object {
         fun buildIntent(context: Context): Intent = Intent(context, SuperBasicActivity::class.java)
     }
+
+    private val job = AndroidJob(lifecycle)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +31,7 @@ class SuperBasicActivity : AppCompatActivity() {
     }
 
     private fun greet(delayMs: Long) {
-        launch(UI) {
+        launch(UI, parent = job) {
             withContext(CommonPool) {
                 Thread.sleep(delayMs)
             }
