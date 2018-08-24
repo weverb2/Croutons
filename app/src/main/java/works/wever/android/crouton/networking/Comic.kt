@@ -1,4 +1,4 @@
-package works.wever.android.crouton
+package works.wever.android.crouton.networking
 
 import com.squareup.moshi.JsonClass
 

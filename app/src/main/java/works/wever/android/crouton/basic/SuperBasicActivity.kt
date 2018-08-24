@@ -1,4 +1,4 @@
-package works.wever.android.crouton
+package works.wever.android.crouton.basic
 
 import android.content.Context
 import android.content.Intent
@@ -10,6 +10,7 @@ import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
 import kotlinx.coroutines.experimental.withContext
+import works.wever.android.crouton.R
 
 class SuperBasicActivity : AppCompatActivity() {
 

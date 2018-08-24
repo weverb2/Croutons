@@ -1,4 +1,4 @@
-package works.wever.android.crouton
+package works.wever.android.crouton.networking
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.experimental.CoroutineCallAdapterFactory
 import kotlinx.coroutines.experimental.Deferred

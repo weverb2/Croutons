@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="works.wever.android.crouton.ChannelExampleActivity">
+    tools:context="works.wever.android.crouton.channels.ChannelExampleActivity">
 
     <fragment
         android:id="@+id/postingFragment"
-        android:name="works.wever.android.crouton.PostingFragment"
+        android:name="works.wever.android.crouton.channels.PostingFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/receivingFragment"
-        android:name="works.wever.android.crouton.ReceivingFragment"
+        android:name="works.wever.android.crouton.channels.ReceivingFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"

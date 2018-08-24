@@ -1,4 +1,4 @@
-package works.wever.android.crouton
+package works.wever.android.crouton.channels
 
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
@@ -15,6 +15,7 @@ import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.channels.ConflatedBroadcastChannel
 import kotlinx.coroutines.experimental.channels.consumeEach
 import kotlinx.coroutines.experimental.launch
+import works.wever.android.crouton.R
 
 
 class ReceivingFragment : Fragment() {

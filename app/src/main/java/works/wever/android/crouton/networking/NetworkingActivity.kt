@@ -1,4 +1,4 @@
-package works.wever.android.crouton
+package works.wever.android.crouton.networking
 
 import android.content.Context
 import android.content.Intent
@@ -9,7 +9,9 @@ import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
 import kotlinx.coroutines.experimental.withContext
-import works.wever.android.crouton.ApiProvider.getComicApi
+import works.wever.android.crouton.GlideApp
+import works.wever.android.crouton.R
+import works.wever.android.crouton.networking.ApiProvider.getComicApi
 
 class NetworkingActivity : AppCompatActivity() {
 

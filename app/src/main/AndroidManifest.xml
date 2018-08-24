@@ -18,9 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SuperBasicActivity" />
-        <activity android:name=".NetworkingActivity" />
-        <activity android:name=".ChannelExampleActivity"></activity>
+        <activity android:name=".basic.SuperBasicActivity" />
+        <activity android:name=".networking.NetworkingActivity" />
+        <activity android:name=".channels.ChannelExampleActivity"></activity>
     </application>
 
 </manifest>

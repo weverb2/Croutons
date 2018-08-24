@@ -1,4 +1,4 @@
-package works.wever.android.crouton
+package works.wever.android.crouton.channels
 
 import android.arch.lifecycle.ViewModel
 import android.content.Context
@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import kotlinx.coroutines.experimental.channels.ConflatedBroadcastChannel
+import works.wever.android.crouton.R
 
 class ChannelExampleActivity : AppCompatActivity() {
 

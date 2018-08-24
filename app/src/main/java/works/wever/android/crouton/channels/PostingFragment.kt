@@ -1,4 +1,4 @@
-package works.wever.android.crouton
+package works.wever.android.crouton.channels
 
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_posting.view.*
 import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.launch
+import works.wever.android.crouton.R
 import java.util.*
 
 class PostingFragment : Fragment() {
