@@ -45,9 +45,7 @@ class PostingFragment : Fragment() {
     }
 
     private fun sendNumber(number: Int) {
-        launch(CommonPool, parent = job) {
-            channelViewModel.postNumber(number)
-        }
+        channelViewModel.postNumber(number)
     }
 
 }

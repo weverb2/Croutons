@@ -5,13 +5,19 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import kotlinx.coroutines.experimental.CommonPool
+import kotlinx.coroutines.experimental.Job
+import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.channels.ConflatedBroadcastChannel
+import kotlinx.coroutines.experimental.launch
+import works.wever.android.crouton.AndroidJob
 import works.wever.android.crouton.R
 
 class ChannelExampleActivity : AppCompatActivity() {
 
     companion object {
-        fun buildIntent(context: Context): Intent = Intent(context, ChannelExampleActivity::class.java)
+        fun buildIntent(context: Context): Intent =
+            Intent(context, ChannelExampleActivity::class.java)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,10 +28,14 @@ class ChannelExampleActivity : AppCompatActivity() {
 
 class ChannelViewModel : ViewModel() {
 
+    private val job = Job()
     val channel: ConflatedBroadcastChannel<Int> = ConflatedBroadcastChannel()
 
-    suspend fun postNumber(number: Int) {
-        channel.send(number)
+    fun postNumber(number: Int) = launch(CommonPool, parent = job) { channel.send(number) }
+
+    override fun onCleared() {
+        super.onCleared()
+        job.cancel()
     }
 
 }

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import works.wever.android.crouton.basic.SuperBasicActivity
 import works.wever.android.crouton.channels.ChannelExampleActivity
+import works.wever.android.crouton.fancynetworking.FancyNetworkingActivity
 import works.wever.android.crouton.networking.NetworkingActivity
 
 class MainActivity : AppCompatActivity() {
@@ -19,6 +20,10 @@ class MainActivity : AppCompatActivity() {
 
         networkingExample.setOnClickListener {
             startActivity(NetworkingActivity.buildIntent(this))
+        }
+
+        fancyNetworkingExample.setOnClickListener {
+            startActivity(FancyNetworkingActivity.buildIntent(this))
         }
 
         channelExample.setOnClickListener {

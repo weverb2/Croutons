@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="works.wever.android.crouton.fancynetworking.FancyNetworkingActivity">
+
+    <ImageView
+        android:id="@+id/comicView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toTopOf="@+id/comicNumberInput"
+        app:layout_constraintLeft_toLeftOf="@+id/fetchComic"
+        app:layout_constraintRight_toRightOf="@+id/fetchComic" />
+
+    <EditText
+        android:id="@+id/comicNumberInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Comic Number"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/fetchComic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/fetchComic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fetch Comic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintLeft_toLeftOf="@+id/fetchComic"
+        app:layout_constraintRight_toRightOf="@+id/fetchComic"
+        app:layout_constraintTop_toBottomOf="@+id/fetchComic"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/vigilance_camera" />
+
+</android.support.constraint.ConstraintLayout>
