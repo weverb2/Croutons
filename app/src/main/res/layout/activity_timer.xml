@@ -16,4 +16,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintLeft_toLeftOf="@+id/timerDisplay"
+        app:layout_constraintRight_toRightOf="@+id/timerDisplay"
+        app:layout_constraintTop_toBottomOf="@+id/timerDisplay"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/vigilance_camera" />
+
 </android.support.constraint.ConstraintLayout>

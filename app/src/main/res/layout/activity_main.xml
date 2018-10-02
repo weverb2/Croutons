@@ -49,6 +49,6 @@
         android:text="Ticker Example"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fancyNetworkingExample" />
+        app:layout_constraintTop_toBottomOf="@id/channelExample" />
 
 </android.support.constraint.ConstraintLayout>

@@ -7,6 +7,7 @@ import works.wever.android.crouton.basic.SuperBasicActivity
 import works.wever.android.crouton.channels.ChannelExampleActivity
 import works.wever.android.crouton.fancynetworking.FancyNetworkingActivity
 import works.wever.android.crouton.networking.NetworkingActivity
+import works.wever.android.crouton.timer.TimerActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,6 +29,10 @@ class MainActivity : AppCompatActivity() {
 
         channelExample.setOnClickListener {
             startActivity(ChannelExampleActivity.buildIntent(this))
+        }
+
+        tickerExample.setOnClickListener {
+            startActivity(TimerActivity.buildIntent(this))
         }
     }
 }
