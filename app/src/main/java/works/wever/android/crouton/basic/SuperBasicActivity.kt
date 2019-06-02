@@ -3,23 +3,17 @@ package works.wever.android.crouton.basic
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import androidx.core.widget.toast
+import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.lifecycleScope
 import kotlinx.android.synthetic.main.activity_super_basic.*
-import kotlinx.coroutines.experimental.CommonPool
-import kotlinx.coroutines.experimental.android.UI
-import kotlinx.coroutines.experimental.launch
-import kotlinx.coroutines.experimental.withContext
-import works.wever.android.crouton.AndroidJob
+import kotlinx.coroutines.launch
 import works.wever.android.crouton.R
 
-class SuperBasicActivity : AppCompatActivity() {
+class SuperBasicActivity : FragmentActivity() {
 
     companion object {
         fun buildIntent(context: Context): Intent = Intent(context, SuperBasicActivity::class.java)
     }
-
-    private val job = AndroidJob(lifecycle)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,12 +25,8 @@ class SuperBasicActivity : AppCompatActivity() {
     }
 
     private fun greet(delayMs: Long) {
-        launch(UI, parent = job) {
-            withContext(CommonPool) {
-                Thread.sleep(delayMs)
-            }
-
-            toast("Hello!")
+        lifecycleScope.launch {
+            Thread.sleep(delayMs)
         }
     }
 }

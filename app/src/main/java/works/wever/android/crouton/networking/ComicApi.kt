@@ -1,8 +1,6 @@
 package works.wever.android.crouton.networking
 
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.experimental.CoroutineCallAdapterFactory
-import kotlinx.coroutines.experimental.Deferred
-import kotlinx.coroutines.experimental.channels.ActorJob
+import kotlinx.coroutines.Deferred
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -23,11 +21,10 @@ interface ComicApi {
 object ApiProvider {
     fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("http://xkcd.com/")
-            .client(OkHttpClient.Builder().build())
-            .addConverterFactory(MoshiConverterFactory.create())
-            .addCallAdapterFactory(CoroutineCallAdapterFactory())
-            .build()
+                .baseUrl("http://xkcd.com/")
+                .client(OkHttpClient.Builder().build())
+                .addConverterFactory(MoshiConverterFactory.create())
+                .build()
     }
 
     fun getComicApi(): ComicApi = getRetrofit().create(ComicApi::class.java)

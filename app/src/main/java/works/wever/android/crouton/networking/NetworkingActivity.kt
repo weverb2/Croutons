@@ -3,13 +3,10 @@ package works.wever.android.crouton.networking
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import kotlinx.android.synthetic.main.activity_networking.*
-import kotlinx.coroutines.experimental.CommonPool
-import kotlinx.coroutines.experimental.android.UI
-import kotlinx.coroutines.experimental.launch
-import kotlinx.coroutines.experimental.withContext
-import works.wever.android.crouton.AndroidJob
+import kotlinx.coroutines.launch
 import works.wever.android.crouton.GlideApp
 import works.wever.android.crouton.R
 import works.wever.android.crouton.networking.ApiProvider.getComicApi
@@ -22,8 +19,6 @@ class NetworkingActivity : AppCompatActivity() {
 
     private lateinit var comicApi: ComicApi
 
-    private val job = AndroidJob(lifecycle)
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_networking)
@@ -35,14 +30,10 @@ class NetworkingActivity : AppCompatActivity() {
         }
     }
 
-    private fun getComic() =
-        launch(UI, parent = job) {
-            val comic = withContext(CommonPool) {
-                comicApi.getCurrentComic().await()
-            }
-
-            setComic(comic)
-        }
+    private fun getComic() = lifecycleScope.launch {
+        val comic = comicApi.getCurrentComic().await()
+        setComic(comic)
+    }
 
     private fun setComic(comic: Comic) {
         GlideApp.with(this).load(comic.img).fitCenter().into(comicView)

@@ -1,7 +1,7 @@
 package works.wever.android.crouton
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import works.wever.android.crouton.basic.SuperBasicActivity
 import works.wever.android.crouton.channels.ChannelExampleActivity
