@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.lifecycleScope
 import kotlinx.android.synthetic.main.fragment_receiving.view.*
@@ -25,7 +24,7 @@ class ReceivingFragment : Fragment() {
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
-        channelViewModel = ViewModelProviders.of(context as FragmentActivity)
+        channelViewModel = ViewModelProviders.of(requireActivity())
                 .get(ChannelViewModel::class.java)
     }
 

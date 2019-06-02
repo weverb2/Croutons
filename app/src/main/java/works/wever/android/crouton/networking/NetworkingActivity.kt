@@ -6,7 +6,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import kotlinx.android.synthetic.main.activity_networking.*
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import works.wever.android.crouton.GlideApp
 import works.wever.android.crouton.R
 import works.wever.android.crouton.networking.ApiProvider.getComicApi
@@ -31,7 +33,7 @@ class NetworkingActivity : AppCompatActivity() {
     }
 
     private fun getComic() = lifecycleScope.launch {
-        val comic = comicApi.getCurrentComic().await()
+        val comic = withContext(Dispatchers.IO) { comicApi.getCurrentComic().execute().body()!! }
         setComic(comic)
     }
 

@@ -1,7 +1,7 @@
 package works.wever.android.crouton.networking
 
-import kotlinx.coroutines.Deferred
 import okhttp3.OkHttpClient
+import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
@@ -11,10 +11,10 @@ import retrofit2.http.Path
 interface ComicApi {
 
     @GET("info.0.json")
-    fun getCurrentComic(): Deferred<Comic>
+    fun getCurrentComic(): Call<Comic>
 
     @GET("{id}/info.0.json")
-    fun getComic(@Path("id") id: Int): Deferred<Comic>
+    fun getComic(@Path("id") id: Int): Call<Comic>
 
 }
 

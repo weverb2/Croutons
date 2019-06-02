@@ -3,7 +3,7 @@ package works.wever.android.crouton.channels
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.FragmentActivity
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Job
@@ -11,7 +11,7 @@ import kotlinx.coroutines.channels.ConflatedBroadcastChannel
 import kotlinx.coroutines.launch
 import works.wever.android.crouton.R
 
-class ChannelExampleActivity : FragmentActivity() {
+class ChannelExampleActivity : AppCompatActivity() {
 
     companion object {
         fun buildIntent(context: Context): Intent =
