@@ -33,7 +33,7 @@ class NetworkingActivity : AppCompatActivity() {
     }
 
     private fun getComic() = lifecycleScope.launch {
-        val comic = withContext(Dispatchers.IO) { comicApi.getCurrentComic().execute().body()!! }
+        val comic = withContext(Dispatchers.IO) { comicApi.getCurrentComic() }
         setComic(comic)
     }
 

@@ -11,7 +11,7 @@ apply plugin: 'androidx.navigation.safeargs'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "works.wever.android.podcast"
+        applicationId "works.wever.croutons"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1

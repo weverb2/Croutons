@@ -23,6 +23,7 @@
         <activity android:name=".channels.ChannelExampleActivity" />
         <activity android:name=".fancynetworking.FancyNetworkingActivity" />
         <activity android:name=".timer.TimerActivity"></activity>
+        <activity android:name=".viewmodelscope.ViewModelActivity" />
     </application>
 
 </manifest>
