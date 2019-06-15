@@ -13,14 +13,14 @@ interface ComicApi {
     suspend fun getCurrentComic(): Comic
 
     @GET("{id}/info.0.json")
-    suspend fun getComic(@Path("id") id: Int): Comic
+    suspend fun getComic(@Path("id") id: String): Comic
 
 }
 
 object ApiProvider {
     fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
-                .baseUrl("http://xkcd.com/")
+                .baseUrl("https://xkcd.com/")
                 .client(OkHttpClient.Builder().build())
                 .addConverterFactory(MoshiConverterFactory.create())
                 .build()

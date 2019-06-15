@@ -28,7 +28,7 @@ class ViewModelActivity : AppCompatActivity() {
         setContentView(R.layout.activity_fancy_networking)
 
         fetchComic.setOnClickListener {
-            comicViewModel.getComic(comicNumberInput.text.toString().toInt())
+            comicViewModel.getComic(comicNumberInput.text.toString())
         }
     }
 
@@ -46,7 +46,7 @@ class ComicViewModel : ViewModel() {
 
     private val comicApi = ApiProvider.getComicApi()
 
-    fun getComic(id: Int) = viewModelScope.launch {
+    fun getComic(id: String) = viewModelScope.launch {
         withContext(Dispatchers.IO) { comicApi.getComic(id) }
     }
 }

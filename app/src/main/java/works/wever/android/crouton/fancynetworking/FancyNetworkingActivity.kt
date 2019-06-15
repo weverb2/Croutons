@@ -29,11 +29,11 @@ class FancyNetworkingActivity : AppCompatActivity() {
         setContentView(R.layout.activity_fancy_networking)
 
         fetchComic.setOnClickListener {
-            getComic(comicNumberInput.text.toString().toInt())
+            getComic(comicNumberInput.text.toString())
         }
     }
 
-    private fun getComic(id: Int) = lifecycleScope.launch {
+    private fun getComic(id: String) = lifecycleScope.launch {
         val comic = withContext(Dispatchers.IO) { comicApi.getComic(id) }
         setComic(comic)
     }
