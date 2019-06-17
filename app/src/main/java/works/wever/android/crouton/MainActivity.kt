@@ -8,6 +8,7 @@ import works.wever.android.crouton.channels.ChannelExampleActivity
 import works.wever.android.crouton.fancynetworking.FancyNetworkingActivity
 import works.wever.android.crouton.networking.NetworkingActivity
 import works.wever.android.crouton.timer.TimerActivity
+import works.wever.android.crouton.viewmodelscope.ViewModelActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,6 +34,10 @@ class MainActivity : AppCompatActivity() {
 
         tickerExample.setOnClickListener {
             startActivity(TimerActivity.buildIntent(this))
+        }
+
+        viewModelExample.setOnClickListener {
+            startActivity(ViewModelActivity.buildIntent(this))
         }
     }
 }

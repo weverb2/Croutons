@@ -4,13 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProviders
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import kotlinx.android.synthetic.main.activity_fancy_networking.*
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import works.wever.android.crouton.GlideApp
 import works.wever.android.crouton.R
 import works.wever.android.crouton.networking.ApiProvider
@@ -30,6 +26,10 @@ class ViewModelActivity : AppCompatActivity() {
         fetchComic.setOnClickListener {
             comicViewModel.getComic(comicNumberInput.text.toString())
         }
+
+        comicViewModel.comicLiveData.observe(this, Observer {
+            setComic(it)
+        })
     }
 
     private fun setComic(comic: Comic) {
@@ -46,7 +46,10 @@ class ComicViewModel : ViewModel() {
 
     private val comicApi = ApiProvider.getComicApi()
 
+    val comicLiveData = MutableLiveData<Comic>()
+
     fun getComic(id: String) = viewModelScope.launch {
-        withContext(Dispatchers.IO) { comicApi.getComic(id) }
+        val comic = comicApi.getComic(id)
+        comicLiveData.postValue(comic)
     }
 }

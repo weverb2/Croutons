@@ -28,7 +28,7 @@
         android:id="@+id/fancyNetworkingExample"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Networking Example"
+        android:text="Fancy Networking Example"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/networkingExample" />
@@ -50,5 +50,14 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/channelExample" />
+
+ <Button
+        android:id="@+id/viewModelExample"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Model Example"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tickerExample" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
